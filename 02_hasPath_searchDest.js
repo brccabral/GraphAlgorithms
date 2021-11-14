@@ -25,7 +25,7 @@ const hasPath_breath_notcyclic = (graph, src, dst) => {
     return false;
 }
 
-const graph = {
+const graph1 = {
     f: ['g', 'i'],
     g: ['h'],
     h: [],
@@ -34,8 +34,28 @@ const graph = {
     k: []
 }
 
-console.log(hasPath_depth_notcyclic(graph, 'j', 'f'));
-console.log(hasPath_depth_notcyclic(graph, 'f', 'k'));
-console.log('');
-console.log(hasPath_breath_notcyclic(graph, 'j', 'f'));
-console.log(hasPath_breath_notcyclic(graph, 'f', 'k'));
+console.log(hasPath_depth_notcyclic(graph1, 'f', 'k')); // true
+console.log(hasPath_depth_notcyclic(graph1, 'f', 'j')); // false
+console.log(hasPath_depth_notcyclic(graph1, 'i', 'h')); // true
+console.log('')
+console.log(hasPath_breath_notcyclic(graph1, 'f', 'k')); // true
+console.log(hasPath_breath_notcyclic(graph1, 'f', 'j')); // false
+console.log(hasPath_breath_notcyclic(graph1, 'i', 'h')); // true
+
+const graph2 = {
+    v: ['x', 'w'],
+    w: [],
+    x: [],
+    y: ['z'],
+    z: [],  
+  };
+  
+console.log('')
+console.log('')
+
+console.log(hasPath_depth_notcyclic(graph2, 'v', 'w')); // true
+console.log(hasPath_depth_notcyclic(graph2, 'v', 'z')); // false
+console.log('')
+console.log(hasPath_breath_notcyclic(graph2, 'v', 'w')); // true
+console.log(hasPath_breath_notcyclic(graph2, 'v', 'z')); // false
+

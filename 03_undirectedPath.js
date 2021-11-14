@@ -30,7 +30,7 @@ const hasPath_depth_preventCyclic = (graph, src, dst, visited) => {
     return false;
 }
 
-const edges = [
+const edges1 = [
     ['i', 'j'],
     ['k', 'i'],
     ['m', 'k'],
@@ -38,5 +38,26 @@ const edges = [
     ['o', 'n'],
 ]
 
-console.log(undirectedPath(edges, 'j', 'm'));
-console.log(undirectedPath(edges, 'j', 'o'));
+console.log(undirectedPath(edges1, 'j', 'm')); // true
+console.log(undirectedPath(edges1, 'm', 'j')); // true
+console.log(undirectedPath(edges1, 'l', 'j')); // true
+console.log(undirectedPath(edges1, 'k', 'o')); // false
+console.log(undirectedPath(edges1, 'i', 'o')); // false
+
+const edges2 = [
+    ['b', 'a'],
+    ['c', 'a'],
+    ['b', 'c'],
+    ['q', 'r'],
+    ['q', 's'],
+    ['q', 'u'],
+    ['q', 't'],
+  ];
+
+console.log('')
+console.log('')
+console.log(undirectedPath(edges2, 'a', 'b')); // true
+console.log(undirectedPath(edges2, 'a', 'c')); // true
+console.log(undirectedPath(edges2, 'r', 't')); // true
+console.log(undirectedPath(edges2, 'r', 'b')); // false
+  
